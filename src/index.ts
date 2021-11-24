@@ -21,7 +21,7 @@ import notify from './notify'
 import LRUCache from 'lru-cache'
 import * as dayjs from 'dayjs'
 
-const redisUrl = new URL(process.env.REDISCLOUD_URL || 'redis://localhost:6379')
+const redisUrl = new URL(process.env.REDISCLOUD_URL)
 const host = redisUrl.hostname
 const port = parseInt(redisUrl.port)
 let password: string | undefined
