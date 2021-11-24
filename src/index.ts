@@ -282,6 +282,7 @@ const cache = new LRUCache<string, Trade[]>(
 const marketStores = {} as any
 
 Object.keys(priceScales).forEach((marketName) => {
+    console.log("object keys was called")
   const conn = new Tedis({
     host,
     port,
@@ -370,6 +371,7 @@ app.get('/tv/history', async (req, res) => {
 
   // respond
   try {
+
     const store = marketStores[marketName] as RedisStore
 
     // snap candle boundaries to exact hours
@@ -394,6 +396,7 @@ app.get('/tv/history', async (req, res) => {
     res.send(response)
     return
   } catch (e) {
+    console.log(e)
     notify(`tv/history ${marketName} ${e.toString()}`)
     const error = { s: 'error candle load error' }
     res.status(500).send(error)
