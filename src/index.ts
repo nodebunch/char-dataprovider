@@ -291,6 +291,7 @@ Object.keys(priceScales).forEach((marketName) => {
 
   const store = new RedisStore(conn, marketName)
   marketStores[marketName] = store
+  console.log("object keys was called" + marketStores[marketName]);
 
   // preload heavy markets
   if (['SOL/USDC', 'SOL-PERP', 'BTC-PERP'].includes(marketName)) {
@@ -303,7 +304,7 @@ Object.keys(priceScales).forEach((marketName) => {
         .catch(() => console.error('could not cache', key))
     }
   }
-  console.log("object keys was called" + marketStores)
+  
 
 })
 
@@ -380,7 +381,7 @@ app.get('/tv/history', async (req, res) => {
     from = Math.floor(from / resolution) * resolution
     to = Math.ceil(to / resolution) * resolution
 
-    console.log("candle Load error Log" + marketStores);
+    console.log("candle Load error Log" + marketStores[marketName]);
 
     // ensure the candle is at least one period in length
     if (from == to) {
