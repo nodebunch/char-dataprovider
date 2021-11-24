@@ -307,12 +307,12 @@ Object.keys(priceScales).forEach((marketName) => {
 
 const app = express()
 
-var whitelist = ['https://nodebunch.finance']
+/* var whitelist = ['https://nodebunch.finance']
 
 var corsOptions = {
     origin: "*",
     optionsSuccessStatus: 200 // some legacy browsers (IE11, various SmartTVs) choke on 204
-  }
+  }*/
 
 app.use(cors())
 
@@ -377,6 +377,8 @@ app.get('/tv/history', async (req, res) => {
     // snap candle boundaries to exact hours
     from = Math.floor(from / resolution) * resolution
     to = Math.ceil(to / resolution) * resolution
+
+    console.log("candle Load error Log")
 
     // ensure the candle is at least one period in length
     if (from == to) {
