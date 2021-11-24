@@ -395,7 +395,7 @@ app.get('/tv/history', async (req, res) => {
     return
   } catch (e) {
     notify(`tv/history ${marketName} ${e.toString()}`)
-    const error = { s: 'error' }
+    const error = { s: 'error candle load error' }
     res.status(500).send(error)
   }
 })
