@@ -21,7 +21,7 @@ import notify from './notify'
 import LRUCache from 'lru-cache'
 import * as dayjs from 'dayjs'
 
-const redisUrl = new URL(process.env.REDISCLOUD_URL)
+const redisUrl = new URL(process.env.REDISCLOUD_URL || 'redis://localhost:6379')
 const host = redisUrl.hostname
 const port = parseInt(redisUrl.port)
 let password: string | undefined
@@ -282,7 +282,7 @@ const cache = new LRUCache<string, Trade[]>(
 const marketStores = {} as any
 
 Object.keys(priceScales).forEach((marketName) => {
-    console.log("object keys was called")
+    
   const conn = new Tedis({
     host,
     port,
@@ -303,6 +303,8 @@ Object.keys(priceScales).forEach((marketName) => {
         .catch(() => console.error('could not cache', key))
     }
   }
+  console.log("object keys was called" + marketStores)
+
 })
 
 const app = express()
@@ -378,7 +380,7 @@ app.get('/tv/history', async (req, res) => {
     from = Math.floor(from / resolution) * resolution
     to = Math.ceil(to / resolution) * resolution
 
-    console.log("candle Load error Log")
+    console.log("candle Load error Log" + marketStores);
 
     // ensure the candle is at least one period in length
     if (from == to) {
