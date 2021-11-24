@@ -305,6 +305,14 @@ Object.keys(priceScales).forEach((marketName) => {
 })
 
 const app = express()
+
+var whitelist = ['https://nodebunch.finance']
+
+var corsOptions = {
+    origin: "*",
+    optionsSuccessStatus: 200 // some legacy browsers (IE11, various SmartTVs) choke on 204
+  }
+
 app.use(cors())
 
 app.get('/tv/config', async (req, res) => {
@@ -432,7 +440,7 @@ app.get('/trades/address/:marketPk', async (req, res) => {
     return
   } catch (e) {
     notify(`trades ${marketName} ${e.toString()}`)
-    const error = { s: 'error' }
+    const error = { s: 'error, last section error', e}
     res.status(500).send(error)
   }
 })
