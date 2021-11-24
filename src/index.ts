@@ -21,13 +21,13 @@ import notify from './notify'
 import LRUCache from 'lru-cache'
 import * as dayjs from 'dayjs'
 
-// const redisUrl = new URL(process.env.REDISCLOUD_URL || 'redis://localhost:6379')
-// const host = redisUrl.hostname
-const port = parseInt(process.env.PORT: string)
-/* let password: string | undefined
+const redisUrl = new URL(process.env.REDISCLOUD_URL || 'redis://localhost:6379')
+const host = redisUrl.hostname
+const port = parseInt(redisUrl.port)
+let password: string | undefined
 if (redisUrl.password !== '') {
   password = redisUrl.password
-} */
+}
 
 const network = 'mainnet-beta'
 const clusterUrl =
@@ -36,7 +36,7 @@ const fetchInterval = process.env.INTERVAL ? parseInt(process.env.INTERVAL) : 30
 
 console.log({ clusterUrl, fetchInterval })
 
-const programIdV3 = '9xQeWvG816bUx9EPjHmaT23yvVM2ZWbrrpZb9PusVFin' // serum dex program
+const programIdV3 = '9xQeWvG816bUx9EPjHmaT23yvVM2ZWbrrpZb9PusVFin'
 
 const nativeMarketsV3: Record<string, string> = {
   'BTC/USDT': 'C1EuT9VokAKLiW7i2ASnZUvxDoKuKkCpDDeNxAptuNe4',
@@ -137,13 +137,12 @@ async function collectEventQueue(m: MarketConfig, r: RedisConfig) {
         const [trades, currentSeqNum] = await fetchTrades(lastSeqNum)
         storeTrades(trades)
         store.storeNumber('LASTSEQ', currentSeqNum)
-      } catch (e:any)
-      {
+      } catch (e) {
         notify(`collectEventQueue ${m.marketName} ${e.toString()}`)
       }
       await sleep({ Seconds: fetchInterval })
     }
-  } catch (e:any) {
+  } catch (e) {
     notify(`collectEventQueue ${m.marketName} ${e.toString()}`)
   }
 }
@@ -228,7 +227,7 @@ async function collectPerpEventQueue(r: RedisConfig, m: PerpMarketConfig) {
       const [trades, currentSeqNum] = await fetchTrades(new BN(lastSeqNum || 0))
       storeTrades(trades)
       store.storeNumber('LASTSEQ', currentSeqNum.toString() as any)
-    } catch (err:any) {
+    } catch (err) {
       notify(`collectPerpEventQueue ${m.name} ${err.toString()}`)
     }
 
@@ -328,8 +327,8 @@ app.get('/tv/symbols', async (req, res) => {
     description: symbol,
     type: 'Spot',
     session: '24x7',
-    exchange: 'Node Bunch',
-    listed_exchange: 'Node Bunch',
+    exchange: 'Mango',
+    listed_exchange: 'Mango',
     timezone: 'Etc/UTC',
     has_intraday: true,
     supported_resolutions: Object.keys(resolutions),
@@ -386,7 +385,7 @@ app.get('/tv/history', async (req, res) => {
     res.set('Cache-control', 'public, max-age=1')
     res.send(response)
     return
-  } catch (e:any) {
+  } catch (e) {
     notify(`tv/history ${marketName} ${e.toString()}`)
     const error = { s: 'error' }
     res.status(500).send(error)
@@ -431,7 +430,7 @@ app.get('/trades/address/:marketPk', async (req, res) => {
     res.set('Cache-control', 'public, max-age=5')
     res.send(response)
     return
-  } catch (e:any) {
+  } catch (e) {
     notify(`trades ${marketName} ${e.toString()}`)
     const error = { s: 'error' }
     res.status(500).send(error)
