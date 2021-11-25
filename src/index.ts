@@ -333,7 +333,7 @@ Object.keys(priceScales).forEach((marketName) => {
   marketStores[marketName] = store
 
   // preload heavy markets
-  if (['SOL/USDC', 'SOL-PERP', 'BTC-PERP'].includes(marketName)) {
+  if (['SOL/USDC'].includes(marketName)) {
     for (let i = 1; i < 60; ++i) {
       const day = dayjs.default().subtract(i, 'days')
       const key = store.keyForDay(+day)
