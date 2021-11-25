@@ -39,33 +39,88 @@ console.log({ clusterUrl, fetchInterval })
 const programIdV3 = '9xQeWvG816bUx9EPjHmaT23yvVM2ZWbrrpZb9PusVFin'
 
 const nativeMarketsV3: Record<string, string> = {
-  'BTC/USDT': 'C1EuT9VokAKLiW7i2ASnZUvxDoKuKkCpDDeNxAptuNe4',
-  'ETH/USDT': '7dLVkUfBVfCGkFhSXDCq1ukM9usathSgS716t643iFGF',
-
-  'BTC/USDC': 'A8YFbxQYFVqKZaoYJLLUVcQiWP7G2MeEgW5wsAQgMvFw',
+  // USDT
+  'AAVE/USDT': '6bxuB5N3bt3qW8UnPNLgMMzDq5sEH8pFmYJYGgzvE11V',
+  'AKRO/USDT': 'HLvRdctRB48F9yLnu9E24LUTRt89D48Z35yi1HcxayDf',
+  'ALEPH/USDT':'Gyp1UGRgbrb6z8t7fpssxEKQgEmcJ4pVnWW3ds2p6ZPY',
+  'BTC/USDT': 'C1EuT9VokAKLiW7i2ASnZUvxDoKuKkCpDDeNxAptuNe4', // heavy market
+  'CEL/USDT': 'cgani53cMZgYfRMgSrNekJTMaLmccRfspsfTbXWRg7u',
+  'CREAM/USDT':'4ztJEvQyryoYagj2uieep3dyPwG2pyEwb2dKXTwmXe82',
+  'ETH/USDT': '7dLVkUfBVfCGkFhSXDCq1ukM9usathSgS716t643iFGF', // heavy market
+  'ETHV/USDT': 'HrgkuJryyKRserkoz7LBFYkASzhXHWp9XA6fRYCA6PHb',
+  'FIDA/USDT': 'EbV7pPpEvheLizuYX3gUCvWM8iySbSRAhu2mQ5Vz2Mxf',
+  'FRONT/USDT': 'CGC4UgWwqA9PET6Tfx6o6dLv94EK2coVkPtxgNHuBtxj',
+  'FTT/USDT': 'Hr3wzG8mZXNHV7TuL6YqtgfVUesCqMxGYCEyP3otywZE', // heavy market
+  'HGET/USDT': 'ErQXxiNfJgd4fqQ58PuEw5xY35TZG84tHT6FXf5s4UxY',
+  'HNT/USDT': '8FpuMGLtMZ7Wt9ZvyTGuTVwTwwzLYfS5NZWcHxbP1Wuh',
+  'HXRO/USDT': '4absuMsgemvdjfkgdLQq1zKEjw3dHBoCWkzKoctndyqd',
+  'IETHV/USDT': '5aoLj1bySDhhWjo7cLfT3pF2gqNGd63uEJ9HMSfASESL',
+  'KEEP/USDT': 'HEGnaVL5i48ubPBqWAhodnZo8VsSLzEM3Gfc451DnFj9',
+  'KIN/USDT': '4nCFQr8sahhhL4XJ7kngGFBmpkmyf3xLzemuMhn6mWTm',
+  'LINK/USDT': '3yEZ9ZpXSQapmKjLAGKZEzUNA1rcupJtsDp5mPBWmGZR',
+  'LUA/USDT': '35tV8UsHH8FnSAi3YFRrgCu4K9tb883wKnAXpnihot5r',
+  'MAPS/USDT': '7cknqHAuGpfVXPtFoJpFvUjJ8wkmyEfbFusmwMfNy3FE',
+  'MATH/USDT': '2WghiBkDL2yRhHdvm8CpprrkmfguuQGJTCDfPSudKBAZ',
+  'MER/USDT': '6HwcY27nbeb933UkEcxqJejtjWLfNQFWkGCjAVNes6g7',
+  'MSRM/USDT': '5nLJ22h1DUfeCfwbFxPYK8zbfbri7nA9bXoDcR8AcJjs',
+  'OXY/USDT': 'GKLev6UHeX1KSDCyo2bzyG6wqhByEzDBkmYTxEdmYJgB',
+  'RAY/USDT': 'teE55QrL4a4QSfydR9dnHF97jgCfptpuigbb53Lo95g', // heavy market
+  'RSR/USDT': 'FcPet5fz9NLdbXwVM6kw2WTHzRAD7mT78UjwTpawd7hJ',
+  'SOL/USDT': 'HWHvQhFmJB3NUcu1aihKmrKegfVxBEHzwVX6yZCKEsi1', // heavy market
+  'SRM/USDT': 'AtNnsY1AyRERWJ8xCskfz38YdvruWVJQUVXgScC1iPb', // heavy market
+  'SUSHI/USDT': '6DgQRTpJTnAYBSShngAVZZDq7j9ogRN1GfSQ3cq9tubW',
+  'SWAG/USDT': 'J2XSt77XWim5HwtUM8RUwQvmRXNZsbMKpp5GTKpHafvf',
+  'SXP/USDT': '8afKwzHR3wJE7W7Y5hvQkngXh6iTepSZuutRMMy96MjR',
+  'TOMO/USDT': 'GnKPri4thaGipzTbp8hhSGSrHgG4F8MFiZVrbRn16iG2',
+  'TRYB/USDT': 'AADohBGxvf7bvixs2HKC3dG2RuU3xpZDwaTzYFJThM8U',
+  'UBXT/USDT': 'F1T7b6pnR8Pge3qmfNUfW6ZipRDiGpMww6TKTrRU4NiL',
+  'UNI/USDT': '2SSnWNrc83otLpfRo792P6P3PESZpdr8cu2r8zCE6bMD',
+  'YFI/USDT': '3Xg9Q4VtZhD4bVYJbTfgGWFV5zjE3U7ztSHa938zizte',
+  // USDC
+  'AKRO/USDC': '5CZXTTgVZKSzgSA3AFMN5a2f3hmwmmJ6hU8BHTEJ3PX8',
+  'ALEPH/USDC': 'GcoKtAmTy5QyuijXSmJKBtFdt99e6Buza18Js7j9AJ6e',
+  'ATLAS/USDC': 'Di66GTLsV64JgCCYGVcY21RZ173BHkjJVgPyezNN7P1K',
+  'BTC/USDC': 'A8YFbxQYFVqKZaoYJLLUVcQiWP7G2MeEgW5wsAQgMvFw', //heavy market
+  'COPE/USDC':'6fc7v3PmjZG9Lk2XTot6BywGyYLkBQuzuFKd4FpCsPxk',
+  'CREAM/USDC': '7nZP6feE94eAz9jmfakNJWPwEKaeezuKKC5D1vrnqyo2',
+  'CYS/USDC': '6V6y6QFi17QZC9qNRpVp7SaPiHpCTp2skbRQkUyZZXPW',
+  'DXL/USDC': 'DYfigimKWc5VhavR4moPBibx9sMcWYVSjVdWvPztBPTa',
   'ETH/USDC': '4tSvZvnbyzHXLMTiFonMyxZoHmFqau1XArcRCVHLZ5gX',
-  'SOL/USDC': '9wFFyRfZBsuAha4YcuxcXLKwMxJR43S7fPfQLusDBzvT',
-  'SRM/USDC': 'ByRys5tuUWDgL73G8JBAEfkdFf8JWBzPBDHsBVQ5vbQA',
-
-  'MCAPS/USDC': 'GgzXqy6agt7nnfoPjAEAFpWqnUwLBK5r2acaAQqXiEM8',
-  'MNGO/USDC': '3d4rzwpy9iGdCZvgxcu7B1YocYffVLsQXPXkBZKt2zLc',
-
-  'USDT/USDC': '77quYg4MGneUdjgXCunt9GgM1usmrxKY31twEy3WHwcS',
-  'FTT/USDC': '2Pbh1CvRVku1TgewMfycemghf6sU9EyuFDcNXqvRmSxc',
-  'RAY/USDC': '2xiv8A5xrJ7RnGdxXB42uFEkYHJjszEhaJyKKt4WaLep',
-  'COPE/USDC': '6fc7v3PmjZG9Lk2XTot6BywGyYLkBQuzuFKd4FpCsPxk',
-  'SBR/USDC': 'HXBi8YBwbh4TXF6PjVw81m8Z3Cc4WBofvauj5SBFdgUs',
-  'STEP/USDC': '97qCB4cAVSTthvJu3eNoEx6AY6DLuRDtCoPm5Tdyg77S',
-
-  /*
-  'CCAI/USDC': '7gZNLDbWE73ueAoHuAeFoSu7JqmorwCLpNTBXHtYSFTa',
   'FIDA/USDC': 'E14BKBhDWD4EuTkWj1ooZezesGxMW8LPCps4W5PuzZJo',
+  'FRONT/USDC': '9Zx1CvxSVdroKMMWf2z8RwrnrLiQZ9VkQ7Ex3syQqdSH',
+  'FTT/USDC': '2Pbh1CvRVku1TgewMfycemghf6sU9EyuFDcNXqvRmSxc', // heavy market
+  'HGET/USDC': '88vztw7RTN6yJQchVvxrs6oXUDryvpv9iJaFa1EEmg87',
+  'HNT/USDC': 'CnUV42ZykoKUnMDdyefv5kP6nDSJf7jFd7WXAecC6LYr',
+  'HXRO/USDC': '6Pn1cSiRos3qhBf54uBP9ZQg8x3JTardm1dL3n4p29tA',
+  'KEEP/USDC': '3rgacody9SvM88QR83GHaNdEEx4Fe2V2ed5GJp2oeKDr',
+  'KIN/USDC': 'Bn6NPyr6UzrFAwC4WmvPvDr2Vm8XSUnFykM2aQroedgn',
+  'LIKE/USDC': '3WptgZZu34aiDrLMUiPntTYZGNZ72yT1yxHYxSdbTArX',
+  'LINK/USDC': '3hwH1txjJVS8qv588tWrjHfRxdqNjBykM1kMcit484up',
+  'LUA/USDC': '4xyWjQ74Eifq17vbue5Ut9xfFNfuVB116tZLEpiZuAn8',
+  'MAPS/USDC': '3A8XQRWXC7BjLpgLDDBhQJLT5yPCzS16cGYRKHkKxvYo',
+  'MATH/USDC': 'J7cPYBrXVy8Qeki2crZkZavcojf2sMRyQU7nx438Mf8t',
   'MER/USDC': 'G4LcexdCzzJUKZfqyVDQFzpkjhB1JoCNL8Kooxi9nJz5',
-  'renDOGE/USDC': '5FpKCWYXgHWZ9CdDMHjwxAfqxJLdw2PRXuAmtECkzADk',
+  'MNGO/USDC': '3d4rzwpy9iGdCZvgxcu7B1YocYffVLsQXPXkBZKt2zLc',
+  'MSOL/USDC': '6oGsL2puUgySccKzn9XA9afqF217LfxP5ocq4B3LWsjy',
+  'MSRM/USDC': '4VKLSYdvrQ5ngQrt1d2VS8o4ewvb2MMUZLiejbnGPV33',
+  'OXY/USDC': 'GZ3WBFsqntmERPwumFEYgrX2B7J7G11MzNZAy7Hje27X',
+  'POLIS/USDC': 'HxFLKUAmAMLz1jtT3hbvCMELwH5H9tpM2QugP8sKyfhW',
+  'SBR/USDC': 'HXBi8YBwbh4TXF6PjVw81m8Z3Cc4WBofvauj5SBFdgUs',
   'SLRS/USDC': '2Gx3UfV831BAh8uQv1FKSPKS9yajfeeD8GJ4ZNb2o2YP',
   'SNY/USDC': 'DPfj2jYwPaezkCmUNm5SSYfkrkz8WFqwGLcxDDUsN3gA',
-  'TULIP/USDC': '8GufnKq7YnXKhnB3WNhgy5PzU9uvHbaaRrZWQK6ixPxW',
-  */
+  'SOL/USDC': '9wFFyRfZBsuAha4YcuxcXLKwMxJR43S7fPfQLusDBzvT', // heavy market
+  'SRM/USDC': 'ByRys5tuUWDgL73G8JBAEfkdFf8JWBzPBDHsBVQ5vbQA', // heavy market
+  'SUSHI/USDC': 'A1Q9iJDVVS8Wsswr9ajeZugmj64bQVCYLZQLra2TMBMo',
+  'SXP/USDC': '4LUro5jaPaTurXK737QAxgJywdhABnFAMQkXX4ZyqqaZ',
+  'TOMO/USDC': '8BdpjpSD5n3nk8DQLqPUyTZvVqFu6kcff5bzUX5dqDpy',
+  'UBXT/USDC': '2wr3Ab29KNwGhtzr5HaPCyfU1qGJzTUAN4amCLZWaD1H',
+  'UNI/USDC': '6JYHjaQBx6AtKSSsizDMwozAEDEZ5KBsSUzH7kRjGJon',
+  'USDT/USDC': '77quYg4MGneUdjgXCunt9GgM1usmrxKY31twEy3WHwcS',
+  'YFI/USDC': '7qcCo8jqepnjjvB5swP4Afsr3keVBs6gNpBTNubd1Kr2',
+  'renBTC/USDC': '74Ciu5yRzhe8TFTHvQuEVbFZJrbnCMRoohBK33NNiPtv',
+  'renDOGE/USDC': '5FpKCWYXgHWZ9CdDMHjwxAfqxJLdw2PRXuAmtECkzADk',
+  'xCOPE/USDC': '7MpMwArporUHEGW7quUpkPZp5L5cHPs9eKUfKCdaPHq2',
+  
 }
 
 const symbolsByPk = Object.assign(
@@ -244,35 +299,21 @@ if (process.env.ROLE === 'web') {
 }
 
 const priceScales: any = {
+  'BTC/USDT': 1,
+  'ETH/USDT': 10,
+  'SOL/USDT': 1000,
+  'RAY/USDT': 1000,
+  'SRM/USDT': 1000,
+  'FTT/USDT': 1000,
+
   'BTC/USDC': 1,
-  'BTC-PERP': 1,
-
   'ETH/USDC': 10,
-  'ETH-PERP': 10,
-
   'SOL/USDC': 1000,
-  'SOL-PERP': 1000,
-
-  'RAY/USDC': 1000,
-  'RAY-PERP': 1000,
-
   'SRM/USDC': 1000,
-  'SRM-PERP': 1000,
-
   'FTT/USDC': 1000,
-  'FTT-PERP': 1000,
-
   'COPE/USDC': 1000,
-  'COPE-PERP': 1000,
-
-  // 'ADA/USDC': 10000,
-  'ADA-PERP': 10000,
-
   'MNGO/USDC': 10000,
-  'MNGO-PERP': 10000,
-
   'USDT/USDC': 10000,
-  // 'USDT-PERP': 10000,
 }
 
 const cache = new LRUCache<string, Trade[]>(
@@ -327,8 +368,8 @@ app.get('/tv/symbols', async (req, res) => {
     description: symbol,
     type: 'Spot',
     session: '24x7',
-    exchange: 'Mango',
-    listed_exchange: 'Mango',
+    exchange: 'Nodebunch',
+    listed_exchange: 'Nodebunch',
     timezone: 'Etc/UTC',
     has_intraday: true,
     supported_resolutions: Object.keys(resolutions),
