@@ -221,10 +221,6 @@ function collectMarketData(programId: string, markets: Record<string, string>) {
   })
 }
 
-function delay(ms: number) {
-  return new Promise( resolve => setTimeout(resolve, ms) );
-}
-
 collectMarketData(programIdV3, nativeMarketsV3)
 
 const groupConfig = Config.ids().getGroup('mainnet', 'mainnet.1') as GroupConfig
@@ -396,11 +392,10 @@ Object.keys(priceScales).forEach((marketName) => {
   const store = new RedisStore(conn, marketName)
   marketStores[marketName] = store
 
-  // preload heavy markets
-  /*
+  // preload markets
   if (['SOL/USDC'].includes(marketName)) {
     for (let i = 1; i < 60; ++i) {
-      await delay(1000);
+      new Promise( resolve => setTimeout(resolve, 100) );;
       const day = dayjs.default().subtract(i, 'days')
       const key = store.keyForDay(+day)
       store
@@ -408,7 +403,7 @@ Object.keys(priceScales).forEach((marketName) => {
         .then(() => console.log('loaded', key))
         .catch(() => console.error('could not cache', key))
     }
-  }*/
+  }
 })
 
 const app = express()
