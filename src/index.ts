@@ -393,7 +393,7 @@ Object.keys(priceScales).forEach((marketName) => {
   marketStores[marketName] = store
 
   // preload markets
-  if (['SOL/USDC'].includes(marketName)) {
+  /* if (['SOL/USDC'].includes(marketName)) {
     for (let i = 1; i < 60; ++i) {
       new Promise( resolve => setTimeout(resolve, 100) );;
       const day = dayjs.default().subtract(i, 'days')
@@ -403,8 +403,21 @@ Object.keys(priceScales).forEach((marketName) => {
         .then(() => console.log('loaded', key))
         .catch(() => console.error('could not cache', key))
     }
-  }
+  }*/
+  prefetch(store);
 })
+
+async function prefetch (store: RedisStore){
+  for (let i = 1; i < 60; ++i) {
+    new Promise( resolve => setTimeout(resolve, 100) );;
+    const day = dayjs.default().subtract(i, 'days')
+    const key = store.keyForDay(+day)
+    store
+      .loadTrades(key, cache)
+      .then(() => console.log('loaded', key))
+      .catch(() => console.error('could not cache', key))
+  }
+}
 
 const app = express()
 
