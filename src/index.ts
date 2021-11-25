@@ -290,24 +290,45 @@ async function collectPerpEventQueue(r: RedisConfig, m: PerpMarketConfig) {
   }
 }
 
-if (process.env.ROLE === 'web') {
-  console.warn('ROLE=web detected. Not collecting perp market data.')
-} else {
-  groupConfig.perpMarkets.forEach((m) =>
-    collectPerpEventQueue({ host, port, password, db: 0 }, m)
-  )
-}
-
 const priceScales: any = {
-  //USDT
   'BTC/USDT': 1,
   'ETH/USDT': 10,
   'SOL/USDT': 1000,
   'RAY/USDT': 1000,
   'SRM/USDT': 1000,
   'FTT/USDT': 1000,
-  //USDC
-  'BTC/USDC': 1,
+  'AAVE/USDT': 1,
+  'AKRO/USDT': 1,
+  'ALEPH/USDT':1,
+  'CEL/USDT': 1,
+  'CREAM/USDT':1,
+  'ETHV/USDT': 1,
+  'FIDA/USDT': 1,
+  'FRONT/USDT': 1,
+  'HGET/USDT': 1,
+  'HNT/USDT': 1,
+  'HXRO/USDT': 1,
+  'IETHV/USDT': 1,
+  'KEEP/USDT': 1,
+  'KIN/USDT': 1,
+  'LINK/USDT': 1,
+  'LUA/USDT': 1,
+  'MAPS/USDT': 1,
+  'MATH/USDT': 1,
+  'MER/USDT': 1,
+  'MSRM/USDT': 1,
+  'OXY/USDT': 1,
+  'RSR/USDT': 1,
+  'SUSHI/USDT': 1,
+  'SWAG/USDT': 1,
+  'SXP/USDT': 1,
+  'TOMO/USDT': 1,
+  'TRYB/USDT': 1,
+  'UBXT/USDT': 1,
+  'UNI/USDT': 1,
+  'YFI/USDT': 1,
+  // USDC
+    'BTC/USDC': 1,
   'ETH/USDC': 10,
   'SOL/USDC': 1000,
   'SRM/USDC': 1000,
@@ -315,6 +336,43 @@ const priceScales: any = {
   'COPE/USDC': 1000,
   'MNGO/USDC': 10000,
   'USDT/USDC': 10000,
+  'AKRO/USDC': 1,
+  'ALEPH/USDC': 1,
+  'ATLAS/USDC': 1,
+  'CREAM/USDC': 1,
+  'CYS/USDC': 1,
+  'DXL/USDC': 1,
+  'FIDA/USDC': 1,
+  'FRONT/USDC': 1,
+  'HGET/USDC': 1,
+  'HNT/USDC': 1,
+  'HXRO/USDC': 1,
+  'KEEP/USDC': 1,
+  'KIN/USDC': 1,
+  'LIKE/USDC': 1,
+  'LINK/USDC': 1,
+  'LUA/USDC': 1,
+  'MAPS/USDC': 1,
+  'MATH/USDC': 1,
+  'MER/USDC': 1,
+  'MSOL/USDC': 1,
+  'MSRM/USDC': 1,
+  'OXY/USDC': 1,
+  'POLIS/USDC': 1,
+  'SBR/USDC': 1,
+  'SLRS/USDC': 1,
+  'SNY/USDC': 1,
+  'SUSHI/USDC': 1,
+  'SXP/USDC': 1,
+  'TOMO/USDC': 1,
+  'UBXT/USDC': 1,
+  'UNI/USDC': 1,
+  'YFI/USDC': 1,
+  'renBTC/USDC': 1,
+  'renDOGE/USDC': 1,
+  'xCOPE/USDC': 1,
+  //USDC
+
 }
 
 const cache = new LRUCache<string, Trade[]>(
