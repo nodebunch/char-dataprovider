@@ -299,13 +299,14 @@ if (process.env.ROLE === 'web') {
 }
 
 const priceScales: any = {
+  //USDT
   'BTC/USDT': 1,
   'ETH/USDT': 10,
   'SOL/USDT': 1000,
   'RAY/USDT': 1000,
   'SRM/USDT': 1000,
   'FTT/USDT': 1000,
-
+  //USDC
   'BTC/USDC': 1,
   'ETH/USDC': 10,
   'SOL/USDC': 1000,
