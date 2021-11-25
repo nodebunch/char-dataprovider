@@ -31,8 +31,8 @@ if (redisUrl.password !== '') {
 
 const network = 'mainnet-beta'
 const clusterUrl =
-  process.env.RPC_ENDPOINT_URL || 'https://api.mainnet-beta.solana.com'
-  // process.env.RPC_ENDPOINT_URL || 'https://solana-api.projectserum.com'
+  // process.env.RPC_ENDPOINT_URL || 'https://api.mainnet-beta.solana.com'
+  process.env.RPC_ENDPOINT_URL || 'https://solana-api.projectserum.com'
 const fetchInterval = process.env.INTERVAL ? parseInt(process.env.INTERVAL) : 30
 
 console.log({ clusterUrl, fetchInterval })
@@ -221,6 +221,10 @@ function collectMarketData(programId: string, markets: Record<string, string>) {
   })
 }
 
+function delay(ms: number) {
+  return new Promise( resolve => setTimeout(resolve, ms) );
+}
+
 collectMarketData(programIdV3, nativeMarketsV3)
 
 const groupConfig = Config.ids().getGroup('mainnet', 'mainnet.1') as GroupConfig
@@ -393,8 +397,10 @@ Object.keys(priceScales).forEach((marketName) => {
   marketStores[marketName] = store
 
   // preload heavy markets
+  /*
   if (['SOL/USDC'].includes(marketName)) {
     for (let i = 1; i < 60; ++i) {
+      await delay(1000);
       const day = dayjs.default().subtract(i, 'days')
       const key = store.keyForDay(+day)
       store
@@ -402,7 +408,7 @@ Object.keys(priceScales).forEach((marketName) => {
         .then(() => console.log('loaded', key))
         .catch(() => console.error('could not cache', key))
     }
-  }
+  }*/
 })
 
 const app = express()
