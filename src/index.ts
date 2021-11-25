@@ -31,7 +31,8 @@ if (redisUrl.password !== '') {
 
 const network = 'mainnet-beta'
 const clusterUrl =
-  process.env.RPC_ENDPOINT_URL || 'https://solana-api.projectserum.com'
+  process.env.RPC_ENDPOINT_URL || 'https://api.mainnet-beta.solana.com'
+  // process.env.RPC_ENDPOINT_URL || 'https://solana-api.projectserum.com'
 const fetchInterval = process.env.INTERVAL ? parseInt(process.env.INTERVAL) : 30
 
 console.log({ clusterUrl, fetchInterval })
