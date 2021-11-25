@@ -347,15 +347,9 @@ Object.keys(priceScales).forEach((marketName) => {
 
 const app = express()
 
-var whitelist = ['https://nodebunch.finance/']
 var corsOptions = {
-  origin: function (origin, callback) {
-    if (whitelist.indexOf(origin) !== -1) {
-      callback(null, true)
-    } else {
-      callback(new Error('Not allowed by CORS'))
-    }
-  }
+  origin: 'https://nodebunch.finance',
+  optionsSuccessStatus: 200 // some legacy browsers (IE11, various SmartTVs) choke on 204
 }
 
 app.use(cors(corsOptions))
