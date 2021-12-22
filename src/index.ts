@@ -77,6 +77,7 @@ const nativeMarketsV3: Record<string, string> = {
   'UBXT/USDT': 'F1T7b6pnR8Pge3qmfNUfW6ZipRDiGpMww6TKTrRU4NiL',
   'UNI/USDT': '2SSnWNrc83otLpfRo792P6P3PESZpdr8cu2r8zCE6bMD',
   'YFI/USDT': '3Xg9Q4VtZhD4bVYJbTfgGWFV5zjE3U7ztSHa938zizte',
+  'NOCH/USDT': '9GgM6YwhdzmoY4VtVsrS3jcCx2NSRraCX1EPGvezukAz',
   // USDC
   'AKRO/USDC': '5CZXTTgVZKSzgSA3AFMN5a2f3hmwmmJ6hU8BHTEJ3PX8',
   'ALEPH/USDC': 'GcoKtAmTy5QyuijXSmJKBtFdt99e6Buza18Js7j9AJ6e',
