@@ -423,7 +423,7 @@ async function prefetch (store: RedisStore){
 const app = express()
 
 var corsOptions = {
-  origin: 'https://nodebunch.finance',
+  origin: 'https://dex.nodebunch.finance',
   optionsSuccessStatus: 200 // some legacy browsers (IE11, various SmartTVs) choke on 204
 }
 
